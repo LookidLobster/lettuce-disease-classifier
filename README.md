@@ -6,7 +6,7 @@
 
 ---
 
-## 📌 Overview
+## Overview
 
 A lightweight AI system that classifies lettuce leaf health status in real-time using a camera connected to a Raspberry Pi 5. The model is trained on a dataset of 4,052 images across 5 categories and deployed as a TFLite model for efficient edge inference.
 
@@ -14,7 +14,7 @@ This project was developed as part of an IoT & Embedded Systems internship, moti
 
 ---
 
-## 🎯 Categories
+## Categories
 
 | Class | Description |
 |---|---|
@@ -26,7 +26,7 @@ This project was developed as part of an IoT & Embedded Systems internship, moti
 
 ---
 
-## 📊 Results
+## Results
 
 | Metric | Value |
 |---|---|
@@ -42,7 +42,7 @@ This project was developed as part of an IoT & Embedded Systems internship, moti
 
 ---
 
-## 🔍 Key Finding: Domain Gap
+## Key Finding: Domain Gap
 
 One of the most interesting findings of this project was the **domain gap** between dataset images and real-world images:
 
@@ -50,13 +50,13 @@ One of the most interesting findings of this project was the **domain gap** betw
 |---|---|---|
 | Dataset images | ~100% | Controlled conditions, close-up leaf shots |
 | Google Images | ~0% | Studio product photos, whole lettuce head |
-| Real market lettuce | TBD | Tested at lab |
+| Real market lettuce | [See in results](https://github.com/LookidLobster/lettuce-disease-classifier/blob/main/results/Lettuce%20controlled%20experiment%20(EETAR%2010_7_2026).xlsx) | Tested at lab |
 
 **Conclusion**: The model performs near-perfectly on images similar to its training distribution (close-up leaf photos in field/greenhouse conditions) but struggles with images from different visual domains (studio photography, different angles, different framing). This is a known challenge in agricultural AI deployment and highlights the importance of collecting locally representative training data.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Input Image (any size)
@@ -74,13 +74,13 @@ Dense(5, softmax)
 5 class probabilities
 ```
 
-**Transfer Learning Strategy**:
+**Transfer Learning method**:
 - Phase 1: Freeze MobileNetV2 base, train classification head only (15 epochs)
 - Phase 2: Unfreeze last 30 layers, fine-tune with lr=1e-5 (10 epochs)
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 lettuce-disease-classifier/
@@ -104,7 +104,7 @@ lettuce-disease-classifier/
 
 ---
 
-## 🚀 Quick Start
+## Quick start
 
 ### 1. Clone the repo
 ```bash
@@ -134,7 +134,7 @@ python3 classifier/camera_classify.py
 
 ---
 
-## 🛠️ Setup (Raspberry Pi)
+## Setup (Raspberry Pi)
 
 ```bash
 # Create project folder
@@ -154,7 +154,7 @@ python3 classifier/classify.py sample.jpg
 
 ---
 
-## 📦 Dataset
+## Dataset used
 
 - **Source**: [Lettuce Disease Dataset — Kaggle](https://www.kaggle.com/datasets/iqrapervez2000/lettuce-disease-dataset)
 - **Total images**: 4,052
@@ -172,7 +172,7 @@ python3 classifier/classify.py sample.jpg
 
 ---
 
-## 👨‍💻 Author
+## Author
 
-**Nodri** — EE Undergraduate, Chulalongkorn University  
-Internship at EETAR Laboratory under Assoc. Prof. Suwit Kiravittaya  
+**Papangkorn Rongsayamanon** — Grade 11 (2026), Greenwood High International School Bangalore
+Internship at EETAR Laboratory, Chulalongkorn University under Assoc. Prof. Suwit Kiravittaya  
